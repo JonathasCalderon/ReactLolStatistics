@@ -1,15 +1,20 @@
 import React from "react";
+
 import styles from "./Navbar.module.css";
+import logo from "../../assets/img/lolLogo.png"
 
 const Navbar = props => {
-    const {header, menuList} = styles;
+    const { header, 
+            menuList,
+            image,
+            menuItem} = styles;
 
     return (
         <header className={`${header}`}>
-            <img />
+            <img src={logo} alt="logo" className={`${image}`}/>
             <ul className={`${menuList}`}>
-                <li>Campeones</li>
-                <li>Elos</li>
+                <li className={`${menuItem}`}>Campeones</li>
+                <li className={`${menuItem}`}>Elos</li>
             </ul>
         </header>
     )
