@@ -11,7 +11,7 @@ const Navbar = () => {
         menuItem } = styles;
 
     return (
-        <header className={`${header}`}>
+        <header className={`navbar ${header}`}>
             <Link to="/">
                 <img src={logo} alt="logo" className={`${image}`} />
             </Link>

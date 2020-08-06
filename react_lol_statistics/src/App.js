@@ -10,9 +10,7 @@ import Elos from "./components/Elos/Elos"
 const App = () => {
     return (
         <div className="container">
-            <div className="navbar">
-                <Navbar />
-            </div>
+            <Navbar />
             <div className="content">
                 <Switch>
                     <Route exact path="/">
@@ -26,9 +24,7 @@ const App = () => {
                     </Route>
                 </Switch>
             </div>
-            <div className="footer">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     )
 }
