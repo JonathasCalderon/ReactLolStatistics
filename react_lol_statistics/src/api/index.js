@@ -4,8 +4,8 @@ import { DATA_DRAGON_API_URL, CHAMPION_SQUARE_ASSET } from "../constants/apiCons
 
 export const fetchAllChampions = async () => {
     try {
-        const { data } = await axios.get(`${DATA_DRAGON_API_URL}champion.json`);
-        return Object.entries(data);
+        const { data: { data } } = await axios.get(`${DATA_DRAGON_API_URL}champion.json`);
+        return data
     } catch (error) {
         console.log(error)
     }
