@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Loader from "react-loader-spinner";
 
-import { fetchAllChampions } from "../../api"
-import Champion from "./Champion/Champion"
+import { fetchAllChampions } from "../../api";
+import Champion from "./Champion/Champion";
+import styles from "./Champions.module.css";
 
 const Champions = () => {
     const [champions, setChampions] = useState({});
-    const renderedChampions = [];
     const championsLoaded = Object.keys(champions).length > 0;
 
     useEffect(() => {
@@ -17,27 +17,26 @@ const Champions = () => {
         fetchAPI();
     }, [])
 
-    useEffect(() => {
+    const renderChampions = () => {
         if (championsLoaded) {
-            for (const champion in champions) {
-                renderedChampions.push(
-                    <Champion key={champion} champion={champions[champion]} />
-                )
-            }
-            console.log(renderedChampions)
+            const renderedChampions = Object.keys(champions).map(champ => (
+                <Champion key={champ} champion={champions[champ]} />
+            )
+            );
+            return renderedChampions
         }
-    }, [champions])
+    }
 
     return (
-        <div>
+        <div className={styles.container}>
             <h1>CHAMPIONS</h1>
             {
-                championsLoaded ?
+                !championsLoaded ?
                     <div>
                         <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
                     </div> :
-                    <div>
-                        {renderedChampions}
+                    <div className={styles.championsContainer}>
+                        {renderChampions()}
                     </div>
             }
         </div>
