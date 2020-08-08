@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import { createChampionImageUrl } from "../../../api";
+import { createChampionSquareImageUrl } from "../../../api";
 import styles from "./Champion.module.css"
 
 const Champion = ({ champion }) => {
     const { id, name, image, tags } = champion
-    const imageUrl = createChampionImageUrl(image.full);
+    const imageUrl = createChampionSquareImageUrl(image.full);
     const allTags = tags.join(" - ")
     return (
         <Link to={`/champion/${id}`}>
