@@ -8,6 +8,7 @@ import styles from "./Champions.module.css";
 const Champions = () => {
     const [champions, setChampions] = useState({});
     const championsLoaded = Object.keys(champions).length > 0;
+    console.log(Object.keys(champions).length > 0);
 
     useEffect(() => {
         const fetchAPI = async () => {

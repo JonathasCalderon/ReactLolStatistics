@@ -22,8 +22,8 @@ export const createChampionSquareImageUrl = imageName => {
 
 export const fetchSingleChampion = async championId => {
     try {
-        const { data: { champion } } = await axios.get(`${SINGLE_CHAMPION_URL}${championId}.json`);
-        return champion;
+        const { data: { data } } = await axios.get(`${SINGLE_CHAMPION_URL}${championId}.json`);
+        return data;
     } catch (error) {
         console.log(error);
     }
